@@ -1,4 +1,4 @@
-package com.example.marvelapp.data
+package com.example.marvelapp.framework.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

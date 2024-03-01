@@ -1,5 +1,6 @@
-package com.example.marvelapp.data
-import com.example.marvelapp.data.response.DataWrapperResponse
+package com.example.marvelapp.framework
+
+import com.jorge.core.data.response.DataWrapperResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

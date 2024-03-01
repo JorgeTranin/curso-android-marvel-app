@@ -1,8 +1,8 @@
 package com.example.marvelapp.framework.di
 
 import com.example.marvelapp.BuildConfig
-import com.example.marvelapp.data.AuthorizationInterceptor
-import com.example.marvelapp.data.MarvelApi
+import com.example.marvelapp.framework.interceptor.AuthorizationInterceptor
+import com.example.marvelapp.framework.MarvelApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +22,7 @@ object NetworkModule {
 
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().apply{
+        return HttpLoggingInterceptor().apply {
             setLevel(
                 if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
