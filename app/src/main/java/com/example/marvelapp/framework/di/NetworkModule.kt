@@ -62,7 +62,7 @@ object NetworkModule {
         converterFactory: GsonConverterFactory
     ): MarvelApi {
         return Retrofit.Builder()
-            .baseUrl("BuildConfig.BASE_URL")
+            .baseUrl("https://gateway.marvel.com:443/v1/public/characters")
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
