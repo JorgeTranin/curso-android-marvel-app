@@ -1,0 +1,1 @@
+/Users/jorgegarcia/AndroidStudioProjects/curso-android-marvel-app/core/build/classes/kotlin/main/com/jorge/core/data/repository/CharacterRepository.class:/Users/jorgegarcia/AndroidStudioProjects/curso-android-marvel-app/core/build/classes/kotlin/main/com/jorge/core/domain/models/Character.class
