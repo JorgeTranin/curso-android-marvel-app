@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.jorge.core.domain.models.Character
 
-class CharactersAdapter : ListAdapter<Character, CharactersViewHolder>(diffCallback) {
+class CharactersAdapter : PagingDataAdapter<Character, CharactersViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         return CharactersViewHolder.create(parent)

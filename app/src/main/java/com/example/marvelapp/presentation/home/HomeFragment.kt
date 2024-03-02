@@ -5,15 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.marvelapp.databinding.FragmentHomeBinding
-import com.jorge.core.domain.models.Character
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private val homeViewModel: HomeViewModel by viewModels()
 
     private val charactersAdapter = CharactersAdapter()
 
@@ -30,26 +35,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapterCharacters()
-        charactersAdapter.submitList(
-            listOf(
-                Character(
-                    "Jorge",
-                    "https://cdn.pixabay.com/photo/2023/07/24/09/14/coccinellidae-8146623_1280.jpg"
-                ),
-                Character(
-                    "Pedro",
-                    "https://cdn.pixabay.com/photo/2023/07/24/09/14/coccinellidae-8146623_1280.jpg"
-                ),
-                Character(
-                    "Miguel",
-                    "https://cdn.pixabay.com/photo/2023/07/24/09/14/coccinellidae-8146623_1280.jpg"
-                ),
-                Character(
-                    "tranin",
-                    "https://cdn.pixabay.com/photo/2023/07/24/09/14/coccinellidae-8146623_1280.jpg"
-                )
-            )
-        )
+
+        lifecycleScope.launch {
+            homeViewModel.getCharacterPaginData("").collectLatest { pagingData ->
+                charactersAdapter.submitData(pagingData)
+            }
+        }
 
     }
 
