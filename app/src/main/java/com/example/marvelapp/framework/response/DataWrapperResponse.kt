@@ -1,4 +1,4 @@
-package com.jorge.core.data.response
+package com.example.marvelapp.framework.response
 
 data class DataWrapperResponse(
     val attributionHTML: String,
