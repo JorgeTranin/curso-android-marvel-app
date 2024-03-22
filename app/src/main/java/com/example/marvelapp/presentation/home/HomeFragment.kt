@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModels()
 
-    private val charactersAdapter = CharactersAdapter()
+    private lateinit var charactersAdapter: CharactersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,10 +45,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAdapterCharacters() {
+        charactersAdapter = CharactersAdapter()
         binding.recyclerCharacters.run {
             setHasFixedSize(true)
             adapter = charactersAdapter
-
 
         }
     }

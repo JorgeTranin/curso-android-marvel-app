@@ -9,7 +9,6 @@ class RetrofitCharacterDataSource @Inject constructor(
     private val marvelApi: MarvelApi
 ): CharacterRemoteDataSource<DataWrapperResponse> {
     override suspend fun fetchCharacter(queris: Map<String, String>): DataWrapperResponse {
-        
         return marvelApi.getCharacters(queris)
     }
 }
