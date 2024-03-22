@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import com.example.marvelapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,16 +47,17 @@ class HomeFragment : Fragment() {
 
     private fun initData() {
         lifecycleScope.launch {
-            homeViewModel.getCharacterPaginData("").collectLatest { pagingData ->
-                charactersAdapter.submitData(pagingData)
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+                homeViewModel.getCharacterPaginData("").collectLatest { pagingData ->
+                    charactersAdapter.submitData(pagingData)
+                }
             }
         }
     }
 
     private fun initAdapterCharacters() {
-
+        charactersAdapter = CharactersAdapter()
         binding.recyclerCharacters.run {
-            charactersAdapter = CharactersAdapter()
             setHasFixedSize(true)
             adapter = charactersAdapter
 
