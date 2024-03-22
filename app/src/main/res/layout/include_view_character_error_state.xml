@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shimmer_character"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/txt_error_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:text="@string/erro_ao_carregar_a_lista"
+        app:drawableTopCompat="@drawable/ic_dissatisfied" />
+
+    <Button
+        android:id="@+id/btn_retry"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/red_400"
+        android:layout_margin="16dp"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:text="@string/tentar_novamente" />
+</LinearLayout>
