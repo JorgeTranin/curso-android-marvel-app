@@ -58,8 +58,11 @@ class HomeFragment : Fragment() {
     private fun initAdapterCharacters() {
         charactersAdapter = CharactersAdapter()
         binding.recyclerCharacters.run {
+            scrollToPosition(0)
             setHasFixedSize(true)
-            adapter = charactersAdapter
+            adapter = charactersAdapter.withLoadStateFooter(CharactersLoadMoreStateAdapter{
+                charactersAdapter.retry()
+            })
 
         }
     }
