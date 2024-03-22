@@ -38,4 +38,7 @@
     <string name="title_hero">Heroes</string>
     <string name="title_favorite">Favoritos</string>
     <string name="title_info">Infos</string>
+    <string name="imagem_representa_erro">imagem representa erro</string>
+    <string name="erro_ao_carregar_a_lista">Erro ao carregar a lista</string>
+    <string name="tentar_novamente">Tentar Novamente</string>
 </resources>
